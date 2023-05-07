@@ -1,14 +1,26 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { getSentences } from './apis/weather'
+import { onMounted, ref } from 'vue'
+const title = ref()
+const content = ref()
+onMounted(() => {
+  getSentences().then((res) => {
+    const result = res?.result
+    title.value = result?.from
+    content.value = result?.name
+  })
+})
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+    <div>
+      <img alt="Vue logo" class="logo" src="@/assets/gifLogo.gif" width="125" height="125" />
+    </div>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld :msg="title" :content="content" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -29,6 +41,8 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  width: 300px;
+  height: 300px;
 }
 
 nav {
@@ -58,7 +72,7 @@ nav a:first-of-type {
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
+    /* display: flex; */
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }
@@ -68,7 +82,7 @@ nav a:first-of-type {
   }
 
   header .wrapper {
-    display: flex;
+    /* display: flex; */
     place-items: flex-start;
     flex-wrap: wrap;
   }
