@@ -36,4 +36,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: "./dist"
-          target: "../usr/share/nginx/html"
+          target: "../usr/share/nginx"
