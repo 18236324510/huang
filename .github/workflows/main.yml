@@ -41,4 +41,4 @@ jobs:
             ls
             pwd
           scp: |
-            './index.html' => ../usr/share/nginx/html/
+            './dist/*' => ../usr/share/nginx/html/
