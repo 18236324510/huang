@@ -23,7 +23,7 @@ onMounted(() => {
       <HelloWorld :msg="title" :content="content" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Homecui</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
@@ -37,6 +37,7 @@ header {
   line-height: 1.5;
   max-height: 100vh;
 }
+
 
 .logo {
   display: block;
